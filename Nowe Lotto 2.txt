@@ -1,0 +1,50 @@
+import random
+
+Receptacle = []
+coupon = []
+
+#choosing numbers
+for tries in range (6):   
+    while True:
+        try:
+            number = int(input("choose your number: "))
+            if number in range (1,50) and number not in coupon:
+                coupon.append(number)
+            else:
+                print("the number must be integer, unique and in the range 1 to 49")
+                continue           
+            break
+        except ValueError:
+            print("don't cheat!")
+        
+#random numbers
+while len(Receptacle) < 6:
+    Random = random.randint(1, 50)
+    if Random not in Receptacle:
+        Receptacle.append(Random)
+    else:
+        continue
+print(Receptacle)
+
+# defining function with common elements
+def common_elements(coupon, Receptacle):
+    result = []
+    for element in coupon:
+        if element in Receptacle:
+            result.append(element)
+    return result
+
+print("Your number of matches is:",len(common_elements(coupon, Receptacle)))
+
+# komunikaty, gdy zostanie odpowiednia ilość liczb trafiona
+
+if len(common_elements(coupon, Receptacle)) < 3:
+    print ("Not today, try next time!")
+elif (len(common_elements(coupon, Receptacle)) == 3):
+    print ("CONGRATULATIONS! You have matched 3 numbers and won 24,00 ZŁ.")
+elif (len(common_elements(coupon, Receptacle)) == 4):
+    print ("CONGRATULATIONS! You have matched 4 numbers and won 232,10 ZŁ.")
+elif (len(common_elements(coupon, Receptacle)) == 5):
+    print ("CONGRATULATIONS! You have matched 5 numbers and won 5433,40 ZŁ.")
+else:
+    print(" CONGRATULATIONS! You have won main prize!")
