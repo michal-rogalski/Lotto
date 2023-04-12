@@ -36,7 +36,7 @@ def common_elements(coupon, Receptacle):
 
 print("Your number of matches is:",len(common_elements(coupon, Receptacle)))
 
-# komunikaty, gdy zostanie odpowiednia ilość liczb trafiona
+# messages when enough numbers are hit
 
 if len(common_elements(coupon, Receptacle)) < 3:
     print ("Not today, try next time!")
